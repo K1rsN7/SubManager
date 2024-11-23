@@ -42,13 +42,9 @@ def get_followers(ban_list):
             page += 1  # Переход к следующей странице
 
         except requests.exceptions.HTTPError as e:
-            logging.error(f'HTTP Error: {e}')
             if e.response.status_code == 403:  # Проверка на ошибку 403 (лимит запросов)
                 logging.error('API недоступен временно: превышен лимит запросов.')
                 break  # Выход из цикла при превышении лимита
-        except requests.exceptions.RequestException as e:
-            logging.error(f'Ошибка запроса: {e}')
-            break  # Выход из цикла при других ошибках
 
     return followers
 
@@ -71,13 +67,9 @@ def get_following(ban_list):
             page += 1  # Переход к следующей странице
 
         except requests.exceptions.HTTPError as e:
-            logging.error(f'HTTP Error: {e}')
             if e.response.status_code == 403:  # Проверка на ошибку 403 (лимит запросов)
                 logging.error('API недоступен временно: превышен лимит запросов.')
                 break  # Выход из цикла при превышении лимита
-        except requests.exceptions.RequestException as e:
-            logging.error(f'Ошибка запроса: {e}')
-            break  # Выход из цикла при других ошибках
 
     return following
 
@@ -121,7 +113,7 @@ def manage_subscriptions(ban_list_followers, ban_list_following):
             unfollow_user(followed)
 
 if __name__ == '__main__':
-    
+    logging.info("Скрипт запущен") 
     ban_list_followers = load_ban_list(BAN_LIST_FILE_PATH_FOLLOWERS)  
     ban_list_following = load_ban_list(BAN_LIST_FILE_PATH_FOLLOWING)  
     
