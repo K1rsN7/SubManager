@@ -9,7 +9,7 @@ GLOBAL_PATH = "YOUR_GLOBAL_PATH"
 # URL для API GitHub
 BASE_URL = 'https://api.github.com'
 BAN_LIST_FILE_PATH_FOLLOWERS = f'{GLOBAL_PATH}/ban_list_followers.txt'  
-BAN_LIST_FILE_PATH_FOLLOWING = '{GLOBAL_PATH}/ban_list_following.txt' 
+BAN_LIST_FILE_PATH_FOLLOWING = f'{GLOBAL_PATH}/ban_list_following.txt' 
 
 # Настройка логирования
 logging.basicConfig(filename=f'{GLOBAL_PATH}/subscription_manager.log', level=logging.INFO, 
@@ -38,7 +38,7 @@ def get_followers(ban_list):
                 break
             
             # Фильтруем подписчиков, исключая тех, кто в бан-листе
-            followYOUR_USERNAMEtend(follower['login'] for follower in current_followers if follower['login'] not in ban_list)
+            followers.extend(follower['login'] for follower in current_followers if follower['login'] not in ban_list)
             page += 1  # Переход к следующей странице
 
         except requests.exceptions.HTTPError as e:
@@ -57,7 +57,7 @@ def get_following(ban_list):
     following = []
     page = 1
     while True:
-        url = f'{BASE_URL}/users/{USERNAME}/following?page={page}'
+        url = f'{BASE_URL}/users/{USERNAME}/following?per_page=100&page={page}'
         try:
             response = requests.get(url)
             response.raise_for_status()  # Проверка на ошибки
@@ -126,4 +126,3 @@ if __name__ == '__main__':
     ban_list_following = load_ban_list(BAN_LIST_FILE_PATH_FOLLOWING)  
     
     manage_subscriptions(ban_list_followers, ban_list_following)  
-
