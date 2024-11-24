@@ -1,6 +1,17 @@
-<img src="./img/banner.jpg">
-<h1 align="center">Subscribe to those who subscribe to you!</h1>
 
+<div align="center">
+	<img src="./img/banner.jpg">
+    <h1>Subscribe to those who subscribe to you!</h1>
+      <a href="https://github.com/K1rsN7/SubManager/issues">
+		<img src="https://img.shields.io/github/issues/K1rsN7/SubManager?color=C0CBD1&labelColor=1F3B58&style=for-the-badge">
+	</a>
+	<a href="https://github.com/K1rsN7/SubManager/stargazers">
+		<img src="https://img.shields.io/github/stars/K1rsN7/SubManager?color=C0CBD1&labelColor=1F3B58&style=for-the-badge">
+	</a>
+	<a href="./LICENSE">
+		<img src="https://img.shields.io/github/license/K1rsN7/SubManager?color=C0CBD1&labelColor=1F3B58&style=for-the-badge">
+	</a>
+</div>
 <h2 align="center">Project Description</h2>
 <p>SubManager is a powerful and user-friendly Python tool designed to automate the management of subscriptions in GitHub. In today's world where audience interaction is key, it's important to keep your subscriptions up to date and keep up to date with changes in your network of contacts.</p>
 <p>With SubManager, you can easily subscribe users who have subscribed to you and unsubscribe those who have decided to leave you. This makes it much easier to keep your subscription list up-to-date and allows you to focus on engaging with your audience rather than on mundane tasks.</p>
