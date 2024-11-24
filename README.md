@@ -1,24 +1,24 @@
 <img src="./img/banner.jpg">
-<h1 align="center">Подписывайся на тех, кто подписался на тебя!</h1>
+<h1 align="center">Subscribe to those who subscribe to you!</h1>
 
-<h2 align="center">Описание проекта</h2>
-<p>SubManager — это мощный и удобный инструмент на Python, предназначенный для автоматизации управления подписками в GitHub. В современном мире, где взаимодействие с аудиторией играет ключевую роль, важно поддерживать актуальность ваших подписок и быть в курсе изменений в вашей сети контактов.</p>
-<p>С помощью SubManager вы можете легко подписываться на пользователей, которые подписались на вас, и отписываться от тех, кто решил от вас уйти. Это значительно упрощает процесс поддержания актуального списка подписок и позволяет вам сосредоточиться на взаимодействии с вашей аудиторией, а не на рутинных задачах.</p>
-<p>Основные функции SubManager включают:</p>
+<h2 align="center">Project Description</h2>
+<p>SubManager is a powerful and user-friendly Python tool designed to automate the management of subscriptions in GitHub. In today's world where audience interaction is key, it's important to keep your subscriptions up to date and keep up to date with changes in your network of contacts.</p>
+<p>With SubManager, you can easily subscribe users who have subscribed to you and unsubscribe those who have decided to leave you. This makes it much easier to keep your subscription list up-to-date and allows you to focus on engaging with your audience rather than on mundane tasks.</p>
+<p>SubManager's key features include:</p>
 <ul>
-    <li><strong>Кроссплатформенность:</strong> Скрипт написан на Python и работает на различных операционных системах, включая Windows, macOS и Linux, что делает его доступным для широкой аудитории.</li>
-    <li><strong>Автоматическая подписка:</strong> Скрипт автоматически подписывается на всех пользователей, которые подписались на ваш аккаунт, что позволяет вам не пропускать новых подписчиков.</li>
-    <li><strong>Автоматическая отписка:</strong> Вы можете легко отписываться от пользователей, которые отписались от вас, что помогает поддерживать чистоту вашего списка подписок.</li>
-    <li><strong>Исключения для алгоритма:</strong> SubManager предоставляет возможность использовать два файла: <code>ban_list_followers.txt</code> и <code>ban_list_following.txt</code>. Эти файлы позволяют вам добавлять пользователей в черный список, исключая их из автоматических подписок и отписок, что дает вам полный контроль над тем, кого вы хотите оставить вне автоматизированного процесса.</li>
+    <li><strong>Cross-platform:</strong> The script is written in Python and runs on a variety of operating systems including Windows, macOS and Linux, making it accessible to a wide audience.</li>
+    <li><strong>Automatic Subscription:</strong> The script automatically subscribes to all users who have subscribed to your account, so you don't miss out on new subscribers.</li>
+    <li><strong>Automatic unsubscribe:</strong> You can easily unsubscribe users who have unsubscribed from you, which helps keep your subscription list clean.</li>
+    <li><strong>Exceptions to the algorithm:</strong> SubManager provides the ability to use two files: <code>ban_list_followers.txt</code> and <code>ban_list_following.txt</code>. These files allow you to add users to a blacklist, excluding them from automatic subscriptions and unsubscriptions, giving you complete control over who you want to leave out of the automated process.</li>
 </ul>
-<h2 align="center">Установка</h2>
+<h2 align="center">Installation</h2>
 <ol>
-    <li><strong>Клонируйте репозиторий:</strong>
+    <li><strong>Clone the repository:</strong>
         <pre><code>git clone https://github.com/yourusername/SubManager.git
 cd SubManager</code></pre>
     </li>
-    <li><strong>Настройте файл <code>main.py</code>:</strong>
-        <p>Откройте файл <code>main.py</code> и измените следующие поля на свои:</p>
+    <li><strong>Customize the file <code>main.py</code>:</strong>
+        <p>Open the <code>main.py</code> file and change the following fields to your own:</p>
         <pre><code>USERNAME = 'YOUR_USERNAME'
 TOKEN = 'YOUR_ACCESS_TOKEN'
 GLOBAL_PATH = "YOUR_GLOBAL_PATH"
@@ -26,89 +26,76 @@ GLOBAL_PATH = "YOUR_GLOBAL_PATH"
     </li>
 </ol>
 
-<h2 align="center">Запуск программы</h2>
-<p>Чтобы запустить программу вручную, выполните следующую команду в терминале:</p>
+<h2 align="center">Running the program</h2>
+<p>To run the program manually, run the following command in the terminal:</p>
 <pre><code>python3 main.py</code></pre>
 
-<h2 align="center">Автоматизация запуска</h2>
-<p>Чтобы автоматизировать запуск скрипта SubManager, выполните следующие шаги в зависимости от вашей операционной системы:</p>
+<h2 align="center">Startup automation</h2>
+<p>To automate the launch of the SubManager script, follow these steps depending on your operating system:</p>
 
-<h3>Для Linux</h3>
+<h3>For Linux or macOS</h3>
 <ol>
-    <li>Откройте crontab для редактирования:
+    <li>Open crontab for editing:
         <pre><code>sudo crontab -e</code></pre>
     </li>
-    <li>Добавьте следующую строку в файл crontab:
+    <li>Add the following line to the crontab file:
         <pre><code>0 */2 * * * /usr/bin/python3 GLOBAL_PATH/main.py</code></pre>
-        <p>Замените <code>GLOBAL_PATH</code> на полный путь до файла <code>main.py</code>.</p>
+        <p>Replace <code>GLOBAL_PATH</code> to the full path to the <code>main.py</code> file.</p>
     </li>
-    <li>Сохраните изменения и выйдите из редактора.</li>
+    <li>Save your changes and exit the editor.</li>
 </ol>
 
-<h3>Для Windows</h3>
+<h3>For Windows</h3>
 <ol>
-    <li><strong>Откройте Планировщик задач:</strong>
+    <li><strong>Open the Task Scheduler:</strong>
         <ul>
-            <li>Нажмите <strong>Windows + R</strong>, введите <code>taskschd.msc</code> и нажмите Enter.</li>
+            <li>Press <strong>Windows + R</strong>, then type <code>taskschd.msc</code> and press Enter.</li>
         </ul>
     </li>
-    <li><strong>Создайте новую задачу:</strong>
+    <li><strong>Create a new task:</strong>
         <ul>
-            <li>В правой панели выберите <strong>Создать задачу</strong> (<em>Create Task</em>).</li>
+            <li>In the right pane, select <strong>Create Task</strong>.</li>
         </ul>
     </li>
-    <li><strong>Настройте общие параметры:</strong>
+    <li><strong>Configure the general settings:</strong>
         <ul>
-            <li>Введите имя задачи и описание.</li>
-            <li>Убедитесь, что выбрана правильная версия Windows в поле <strong>Конфигурация для</strong> (<em>Configure for</em>).</li>
+            <liEnter the name of the task and a description.li>
+            <li>Make sure that the correct version of Windows is selected in the <strong>Configuration for</strong> field.</li>
         </ul>
     </li>
-    <li><strong>Настройте триггер:</strong>
+    <li><strong>Set Trigger:</strong>
         <ul>
-            <li>Перейдите на вкладку <strong>Триггеры</strong> (<em>Triggers</em>) и нажмите <strong>Создать</strong> (<em>New</em>). </li>
-            <li>Выберите <strong>По расписанию</strong> (<em>On a schedule</em>). </li>
-            <li>Установите частоту на <strong>Каждые 2 часа</strong>. Для этого можно выбрать "Ежедневно" и затем указать интервал выполнения.</li>
+            <li>Перейдите на вкладку <strong>Триггеры</strong> (<em>Triggers</em>) и нажмите <strong>Создать</strong></li>
+            <li>Select <strong>Schedule</strong></li>
+            <li>Set the frequency to <strong>Every 2 hours</strong>. To do this, you can select “Daily” and then specify the execution interval.</li>
         </ul>
     </li>
-    <li><strong>Настройте действие:</strong>
+    <li><strong>Customize the action:</strong>
         <ul>
-            <li>Перейдите на вкладку <strong>Действия</strong> (<em>Actions</em>) и нажмите <strong>Создать</strong> (<em>New</em>). </li>
-            <li><strong>Выберите Запустить программу</strong> (<em>Start a program</em>). </li>
-            <li><p><strong>В поле "Программа или сценарий"</strong>, укажите путь к интерпретатору Python, например:</p>
+            <li>Перейдите на вкладку <strong>Действия</strong> (<em>Actions</em>) и нажмите <strong>Создать</strong></li>
+            <li><strong>Select Run Program</strong></li>
+            <li><p><strong>In the “Program or Script”</strong> field, specify the path to the Python interpreter, for example:</p>
                 <pre><code>C:\Path\To\Python\python.exe</code></pre></li>
-            <li><p><strong>В поле "Аргументы"</strong>, укажите путь к вашему скрипту:</p>
+            <li><p><strong>In the “Arguments”</strong> field, specify the path to your script:</p>
                 <pre><code>C:\Path\To\Your\Script\main.py</code></pre></li>
         </ul>
     </li>
-    <li><strong>Сохраните задачу:</strong>
+    <li><strong>Save the task:</strong>
         <ul>
-            <li><p>Нажмите "ОК", чтобы сохранить настройки задачи.</p></li>
+            <li><p>Click “OK” to save the task settings.</p></li>
         </ul>
     </li>
 </ol>
 
-<h3>Для macOS</h3>
-<ol>
-    <li>Откройте терминал.</li>
-    <li>Введите команду для редактирования crontab:
-        <pre><code>crontab -e</code></pre>
-    </li>
-    <li>Добавьте следующую строку в файл crontab:
-        <pre><code>0 */2 * * * /usr/local/bin/python3 GLOBAL_PATH/main.py</code></pre>
-        <p>Замените <code>GLOBAL_PATH</code> на полный путь до файла <code>main.py</code>.</p>
-    </li>
-    <li>Сохраните изменения и выйдите из редактора.</li>
-</ol>
-
-<h2 align="center">Лицензия</h2>
-<p>Этот проект лицензирован под <a href="LICENSE">MIT License</a>. MIT License — это одна из самых популярных и простых лицензий с открытым исходным кодом. Она позволяет:</p>
+<h2 align="center">License</h2>
+<p>This project is licensed under the <a href=“./LICENSE”>MIT License</a>. The MIT License is one of the most popular and simple open source licenses. It allows you to:</p>
 <ul>
-    <li><strong>Использовать:</strong> Вы можете использовать код проекта в своих собственных проектах, как личных, так и коммерческих.</li>
-    <li><strong>Изменять:</strong> Вы можете изменять код проекта, адаптируя его под свои нужды или улучшая функциональность.</li>
-    <li><strong>Распространять:</strong> Вы можете распространять оригинальный код или свои модификации, при этом необходимо указать авторство оригинального проекта.</li>
+    <li><strong>Use:</strong> You can use the project code in your own projects, whether personal or commercial.</li>
+    <li><strong>Modify:</strong> You can modify the project code, adapting it to your needs or improving functionality.</li>
+    <li><strong>Distribute:</strong> You can distribute the original code or your own modifications, and you must specify the authorship of the original project.</li>
 </ul>
-<p>Важно отметить, что лицензия не предоставляет никаких гарантий, и авторы не несут ответственности за возможные проблемы, возникающие при использовании кода.</p>
+<p>It is important to note that the license does not provide any warranty, and the authors are not responsible for any problems that may occur when using the code.</p>
 
-<h2 align="center">Контакты</h2>
-<p>Если у вас есть вопросы, предложения или вы хотите обсудить проект, пожалуйста, свяжитесь со мной через Telegram: <a href="https://t.me/K1rsN7">@K1rsN7</a>.</p>
-<p>Я всегда рад услышать отзывы и предложения по улучшению проекта. Ваша поддержка и идеи помогут сделать SubManager еще лучше!</p>
+<h2 align="center">Contacts</h2>
+<p>If you have any questions, suggestions or would like to discuss the project, please contact me via Telegram: <a href=“https://t.me/K1rsN7”>@K1rsN7</a>.</p>.
+<p>I'm always happy to hear feedback and suggestions for improving the project. Your support and ideas will help me make SubManager even better!
