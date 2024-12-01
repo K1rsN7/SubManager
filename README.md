@@ -28,6 +28,9 @@
         <pre><code>git clone https://github.com/yourusername/SubManager.git
 cd SubManager</code></pre>
     </li>
+    <li><strong>Install required Python libraries:</strong> 
+	<p>Before running the script, you need to install the necessary Python libraries. You can do this using pip. Make sure you have Python and pip installed on your system. Then, run the following command:</p> 
+	<pre><code>pip install requests beautifulsoup4 lxml</code></pre> 
     <li><strong>Customize the file <code>main.py</code>:</strong>
         <p>Open the <code>main.py</code> file and change the following fields to your own:</p>
         <pre><code>USERNAME = 'YOUR_USERNAME'
