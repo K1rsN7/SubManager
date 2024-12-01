@@ -1,5 +1,7 @@
 import requests
+from bs4 import BeautifulSoup
 import logging
+import time
 
 # Замените эти значения на свои
 USERNAME = 'YOUR_USERNAME'
@@ -24,52 +26,77 @@ def load_ban_list(file_path):
         return set()
 
 def get_followers(ban_list):
+    logging.info("Парсим подписчиков...") 
     """Получает список подписчиков с поддержкой постраничной навигации, исключая пользователей из бан-листа."""
-    followers = []
+    followers = list() 
     page = 1
+    
     while True:
-        url = f'{BASE_URL}/users/{USERNAME}/followers?per_page=100page={page}'
+        url = f'https://github.com/{USERNAME}?tab=followers&page={page}'
         try:
             response = requests.get(url)
             response.raise_for_status()  # Проверка на ошибки
-            current_followers = response.json()
+            # Парсинг HTML-кода страницы
+            soup = BeautifulSoup(response.text, 'html.parser')
+            current_followers = soup.find_all('img', class_='avatar')
             
             if not current_followers:  # Если текущая страница пустая, выходим из цикла
                 break
-            
+
             # Фильтруем подписчиков, исключая тех, кто в бан-листе
-            followers.extend(follower['login'] for follower in current_followers if follower['login'] not in ban_list)
+            for follower in current_followers[1:]:
+                follower_username = follower.get('alt')[1:]
+                if follower_username not in ban_list:
+                    followers.append(follower_username)
+                
+            # Если количество текущих подписчиков меньше 2, выходим из цикла
+            if len(current_followers) < 2:
+                break
+            
             page += 1  # Переход к следующей странице
+            time.sleep(1)  # Задержка между запросами
 
         except requests.exceptions.HTTPError as e:
-            if e.response.status_code == 403:  # Проверка на ошибку 403 (лимит запросов)
-                logging.error('API недоступен временно: превышен лимит запросов.')
-                break  # Выход из цикла при превышении лимита
+            logging.error(f'Ошибка HTTP: {e}')
+            break  # Выход из цикла при ошибке
 
     return followers
 
 def get_following(ban_list):
+    logging.info("Парсим подписки...") 
     """Получает список пользователей, на которых вы подписаны с поддержкой постраничной навигации, исключая пользователей из бан-листа."""
-    following = []
+    following = list() 
     page = 1
+    
     while True:
-        url = f'{BASE_URL}/users/{USERNAME}/following?per_page=100&page={page}'
+        url = f'https://github.com/{USERNAME}?tab=following&page={page}'
         try:
             response = requests.get(url)
             response.raise_for_status()  # Проверка на ошибки
-            current_following = response.json()
+            
+            # Парсинг HTML-кода страницы
+            soup = BeautifulSoup(response.text, 'html.parser')
+            current_following = soup.find_all('img', class_='avatar')
             
             if not current_following:  # Если текущая страница пустая, выходим из цикла
                 break
             
             # Фильтруем подписок, исключая тех, кто в бан-листе
-            following.extend(followed['login'] for followed in current_following if followed['login'] not in ban_list)
+            for followed in current_following[1:]:
+                followed_username = followed.get('alt')[1:]
+                if followed_username not in ban_list:
+                    following.append(followed_username)
+
+            # Если количество текущих подписок меньше 2, выходим из цикла
+            if len(current_following) < 2:
+                break
+            
             page += 1  # Переход к следующей странице
+            time.sleep(1)  # Задержка между запросами
 
         except requests.exceptions.HTTPError as e:
-            if e.response.status_code == 403:  # Проверка на ошибку 403 (лимит запросов)
-                logging.error('API недоступен временно: превышен лимит запросов.')
-                break  # Выход из цикла при превышении лимита
+            logging.error(f'Ошибка HTTP: {e}')
+            break  # Выход из цикла при ошибке
 
     return following
 
