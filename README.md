@@ -25,7 +25,7 @@
 <h2 align="center">Installation</h2>
 <ol>
     <li><strong>Clone the repository:</strong>
-        <pre><code>git clone https://github.com/yourusername/SubManager.git
+        <pre><code>git clone https://github.com/K1rsN7/SubManager.git
 cd SubManager</code></pre>
     </li>
     <li><strong>Install required Python libraries:</strong> 
