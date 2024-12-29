@@ -112,6 +112,13 @@ cd SubManager</code></pre>
 </ul>
 <p>It is important to note that the license does not provide any warranty, and the authors are not responsible for any problems that may occur when using the code.</p>
 
+<h2 align="center">History Stars</h2>
+<div align="center">
+  <img
+    align="center"
+    src="https://api.star-history.com/svg?repos=K1rsN7/SubManager&type=Date&theme=dark"
+  />
+</div>
 <h2 align="center">Contacts</h2>
 <p>If you have any questions, suggestions or would like to discuss the project, please contact me via Telegram: <a href="https://t.me/K1rsN7">@K1rsN7</a>.</p>
 <p>I'm always happy to hear feedback and suggestions for improving the project. Your support and ideas will help me make SubManager even better!
