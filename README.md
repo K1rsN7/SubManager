@@ -116,7 +116,7 @@ cd SubManager</code></pre>
 <div align="center">
   <img
     align="center"
-    src="https://api.star-history.com/svg?repos=K1rsN7/SubManager&type=Date&theme=dark"
+    src="https://api.star-history.com/svg?repos=K1rsN7/SubManager&type=Timeline&theme=dark"
   />
 </div>
 <h2 align="center">Contacts</h2>
