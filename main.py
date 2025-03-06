@@ -58,7 +58,7 @@ def load_ban_list(file_path:str) -> set:
     except FileNotFoundError:
         return set()
 
-def retry_request(url, method='get', max_retries=3, delay=1, **kwargs):
+def retry_request(url, method='get', max_retries=10, delay=1, **kwargs):
     """Retry a request with exponential backoff."""
     retries = 0
     while retries < max_retries:
@@ -118,7 +118,7 @@ def get_users_list(ban_list: set, message:str, user_type:str='followers', curren
             sys.stdout.flush() 
         url = f'https://github.com/{current_username}?tab={user_type}&page={page}'
         try:
-            response = retry_request(url, method='get', max_retries=3, delay=1)
+            response = retry_request(url, method='get')
             response.raise_for_status() # Checking for errors
             
             # Parsing the HTML code of a page
